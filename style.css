@@ -1,0 +1,69 @@
+/* Base styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f9f9f9, #e6f0ff); /* subtle gradient */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Gradient "Coming Soon" text */
+.coming-soon {
+  font-size: clamp(2rem, 6vw, 3.5rem); /* scales smoothly */
+  font-weight: bold;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite, fadeIn 2s ease forwards;
+  opacity: 0;
+  margin: 0 1rem; /* some breathing space on small screens */
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+/* Desktop/tablet footer */
+footer p {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  footer {
+    position: static; /* no sticking at bottom */
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  footer p {
+    border: none;
+    padding: 5px 10px;
+  }
+}
